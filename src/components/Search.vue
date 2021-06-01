@@ -5,8 +5,9 @@
       name="walletAddress"
       placeholder="Enter your wallet address."
       class="wallet-address"
+      v-model="search"
     />
-    <button class="search-button">
+    <button class="search-button" @click="searchWallet">
       <SearchIcon width="16" height="16" color="#777"></SearchIcon>
     </button>
   </div>
@@ -16,7 +17,18 @@
 import SearchIcon from "./icons/SearchIcon";
 export default {
   name: "Search",
+  data() {
+    return {
+      search: null,
+    };
+  },
   props: {},
+  computed: {},
+  methods: {
+    searchWallet() {
+      this.$router.push("/wallet/" + this.search);
+    },
+  },
   components: {
     SearchIcon,
   },

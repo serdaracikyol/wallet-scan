@@ -1,5 +1,14 @@
 <template>
   <div class="wallet">
-    <h1>This is an wallet page</h1>
+    <h1>Your Wallet</h1>
+    <wallet-table></wallet-table>
   </div>
 </template>
+<script>
+import WalletTable from "../components/WalletTable.vue";
+export default {
+  components: {
+    WalletTable,
+  },
+};
+</script>

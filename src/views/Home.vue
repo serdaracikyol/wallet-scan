@@ -14,12 +14,19 @@ export default {
   components: {},
   methods: {
     deneme() {
-      let avx = new BlockchainFactory(
-        null,
-        "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B"
+      let avx = BlockchainFactory.avalanche(
+        "0xe63D6CF8e83E0F0F04Fb38C04d01a8E6e2aA0187"
       );
 
-      avx.getBalance().then((bal) => {
+      // avx.getBalance().then((bal) => {
+      //   console.log(bal);
+      // });
+
+      // avx.getTokenBalances().then((bal) => {
+      //   console.log(bal);
+      // });
+
+      avx.getAllBalance().then((bal) => {
         console.log(bal);
       });
       //marketDataService.getCoinPrices(["avalanche-2"], ["TRY"]);

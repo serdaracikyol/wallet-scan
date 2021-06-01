@@ -1,0 +1,22 @@
+[
+  {
+    "symbol": "Cake",
+    "contractAddress": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
+  },
+  {
+    "symbol": "SPORE",
+    "contractAddress": "0x33a3d962955a3862c8093d1273344719f03ca17c"
+  },
+  {
+    "symbol": "FAIR",
+    "contractAddress": "0xca578afee65fd2268d383f8fc4a9fc6ae1d2def0"
+  },
+  {
+    "symbol": "AQUAGOAT",
+    "contractAddress": "0x07af67b392B7A202fAD8E0FBc64C34F33102165B"
+  },
+  {
+    "symbol": "COUGAR",
+    "contractAddress": "0x694dc0619e7140d83f2627d573015565096832d3"
+  }
+]

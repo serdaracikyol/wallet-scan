@@ -1,11 +1,15 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import walletModule from "./modules/wallet.module";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
+  state: {
+    error: [],
+  },
   mutations: {},
   actions: {},
-  modules: {},
+  getters: {},
+  modules: { walletModule },
 });
