@@ -1,6 +1,5 @@
 import BlockchainFactory from "../../services/blockchain/blockchainFactory.service";
 import router from "@/router";
-import { concat } from "core-js/core/array";
 
 export default {
   namespaced: true,
@@ -38,6 +37,8 @@ export default {
       let bscBalances = await bsc.getAllBalance();
       let avxBalances = await avx.getAllBalance();
       let ethBalances = await eth.getAllBalance();
+
+      balances = [...bscBalances, ...avxBalances, ...ethBalances];
 
       if (balances.length > 0) {
         commit("setBalances", balances);
