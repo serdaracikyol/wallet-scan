@@ -1,20 +1,20 @@
 <template>
-  <div id="search">
+  <form id="search" @submit.prevent="submitSearch">
     <input
       type="text"
-      name="walletAddress"
       placeholder="Enter your wallet address."
       class="wallet-address"
       v-model="search"
     />
-    <button class="search-button" @click="searchWallet">
+    <button class="search-button" type="submit">
       <SearchIcon width="16" height="16" color="#777"></SearchIcon>
     </button>
-  </div>
+  </form>
 </template>
 
 <script>
 import SearchIcon from "./icons/SearchIcon";
+
 export default {
   name: "Search",
   data() {
@@ -25,8 +25,19 @@ export default {
   props: {},
   computed: {},
   methods: {
-    searchWallet() {
-      this.$router.push("/wallet/" + this.search);
+    submitSearch() {
+      this.$router
+        .push({
+          name: "wallet",
+          query: {
+            q: this.search,
+          },
+        })
+        .catch((err) => {
+          return err;
+        });
+
+      this.search = null;
     },
   },
   components: {

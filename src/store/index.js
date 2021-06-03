@@ -6,9 +6,16 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    error: [],
+    error: {},
   },
-  mutations: {},
+  mutations: {
+    setError(state, _error) {
+      state.error[_error.moduleName] = _error.errMessage;
+    },
+    resetError(state, _module) {
+      delete state.error[_module];
+    },
+  },
   actions: {},
   getters: {},
   modules: { walletModule },

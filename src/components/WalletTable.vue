@@ -10,14 +10,19 @@
       </thead>
       <tbody>
         <tr v-for="item in balanceList" :key="item.symbol">
-          <td>{{ item.chain }}</td>
+          <td>
+            <chain-icon :chain-name="item.chain" width="40" height="40" />
+          </td>
           <td>{{ item.name }}</td>
           <td>
             {{ item.balance }} <b>{{ item.symbol }}</b>
           </td>
         </tr>
         <tr v-if="loading" class="loading">
-          <td colspan="4">Loading...</td>
+          <td colspan="4">Loading..</td>
+        </tr>
+        <tr v-if="error.walletError && !loading" class="loading">
+          <td colspan="4">{{ error.walletError }}</td>
         </tr>
       </tbody>
     </table>
@@ -26,15 +31,21 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+import ChainIcon from "./icons/ChainIcon";
+
 export default {
   computed: {
+    ...mapState(["error"]),
     ...mapState("walletModule", ["balanceList", "loading"]),
   },
   methods: {
     ...mapActions("walletModule", ["getBalances"]),
   },
-  created: function () {
-    this.getBalances();
+  mounted: function () {
+    this.getBalances(this.$route.query.q);
+  },
+  components: {
+    ChainIcon,
   },
 };
 </script>
@@ -51,8 +62,12 @@ table.wallet-table {
     text-align: start;
     padding: 15px;
 
-    &:nth-child(2) {
-      width: 50%;
+    &:first-child {
+      width: 5%;
+    }
+
+    &:last-child {
+      width: 20%;
     }
   }
 

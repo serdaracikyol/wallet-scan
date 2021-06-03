@@ -1,5 +1,5 @@
 import BlockchainFactory from "../../services/blockchain/blockchainFactory.service";
-import router from "@/router";
+import { isValidAddress } from "../../utils/blockchain";
 
 export default {
   namespaced: true,
@@ -8,8 +8,8 @@ export default {
     balanceList: [],
   },
   mutations: {
-    setLoading(state, _data) {
-      state.loading = _data;
+    setLoading(state, _loadState) {
+      state.loading = _loadState;
     },
     setBalances(state, _balances) {
       state.balanceList = _balances;
@@ -19,30 +19,47 @@ export default {
    * @todo test
    */
   actions: {
-    async getBalances({ commit }) {
-      commit("setLoading", true);
-      commit("setBalances", []);
-      let balances = [];
+    async getBalances({ commit }, _walletAddress) {
+      if (isValidAddress(_walletAddress)) {
+        commit("setBalances", []);
+        commit("setLoading", true);
 
-      let bsc = BlockchainFactory.smartchain(
-        router.currentRoute.params.walletAddress
-      );
-      let avx = BlockchainFactory.avalanche(
-        router.currentRoute.params.walletAddress
-      );
-      let eth = BlockchainFactory.ethereum(
-        router.currentRoute.params.walletAddress
-      );
+        let bsc = BlockchainFactory.smartchain(_walletAddress);
+        let avx = BlockchainFactory.avalanche(_walletAddress);
+        let eth = BlockchainFactory.ethereum(_walletAddress);
 
-      let bscBalances = await bsc.getAllBalance();
-      let avxBalances = await avx.getAllBalance();
-      let ethBalances = await eth.getAllBalance();
+        let bscBalances = await bsc.getAllBalance();
+        let avxBalances = await avx.getAllBalance();
+        let ethBalances = await eth.getAllBalance();
 
-      balances = [...bscBalances, ...avxBalances, ...ethBalances];
+        let balances = [...bscBalances, ...avxBalances, ...ethBalances];
 
-      if (balances.length > 0) {
-        commit("setBalances", balances);
+        /// TODO: sdfsdfsdfs
+        if (balances.length < 0) {
+          commit(
+            "setError",
+            {
+              moduleName: "walletError",
+              errMessage: "There is no balance.",
+            },
+            { root: true }
+          );
+        }
+
         commit("setLoading", false);
+        commit("setBalances", balances);
+        commit("resetError", "walletError", { root: true });
+      } else {
+        commit("setLoading", false);
+        commit("setBalances", []);
+        commit(
+          "setError",
+          {
+            moduleName: "walletError",
+            errMessage: "This address is not a valid address.",
+          },
+          { root: true }
+        );
       }
     },
   },
