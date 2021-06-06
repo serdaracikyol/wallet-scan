@@ -1,47 +1,57 @@
 <template>
   <div id="nav">
     <div class="nav-container">
-      <h1 class="navTitle">
-        <router-link to="/">{{ brand }}</router-link>
-      </h1>
+      <!--Logo-->
+      <router-link to="/" class="navTitle">
+        <wallet-scan-icon width="40" height="40" />
+        <h1>{{ brand }}</h1>
+      </router-link>
+      <!--\Logo-->
+
       <Search />
-      <ul>
+
+      <!--Menu-->
+      <ul class="nav-menu">
         <li>
           <router-link to="/wallet"> Wallet</router-link>
         </li>
+
         <li>
-          <a href=""> USD </a>
+          <a>USD</a>
           <ul class="dropdown-menu">
             <li>
-              <a href="/profile"> BTC - 0.0007</a>
+              <router-link to="/">BTC- 0.0007</router-link>
             </li>
             <li>
-              <a href="/"> USD - 1.00</a>
+              <router-link to="/"> USD - 1.00</router-link>
             </li>
             <li>
-              <a href="/"> EUR - 0.840</a>
+              <router-link to="/"> EUR - 0.840</router-link>
             </li>
             <li>
-              <a href="/"> TRY - 8.535</a>
+              <router-link to="/"> TRY - 8.535</router-link>
             </li>
           </ul>
         </li>
+
         <li>
-          <a href="/">
-            <flag-icon country-code="US" width="25"></flag-icon>
+          <a>
+            <flag-icon country-code="US" width="20"> </flag-icon>
           </a>
+
           <ul class="dropdown-menu">
             <li>
-              <a href="/EN">
-                <flag-icon country-code="US" width="25"></flag-icon>
-                English
-              </a>
+              <router-link to="/lang/us">
+                <flag-icon country-code="US" width="18"></flag-icon>
+                <span>English</span>
+              </router-link>
             </li>
+
             <li>
-              <a href="/TR">
-                <flag-icon country-code="TR" width="25"></flag-icon>
-                Türkçe
-              </a>
+              <router-link to="/lang/tr">
+                <flag-icon country-code="TR" width="18"></flag-icon>
+                <span>Türkçe</span>
+              </router-link>
             </li>
           </ul>
         </li>
@@ -51,7 +61,7 @@
 </template>
 
 <script>
-import { FlagIcon } from "./icons/LoadIcon";
+import { WalletScanIcon, FlagIcon } from "./icons/LoadIcon";
 
 import Search from "./Search.vue";
 
@@ -63,125 +73,133 @@ export default {
   components: {
     Search,
     FlagIcon,
+    WalletScanIcon,
   },
 };
 </script>
 
 <style scoped lang="scss">
 #nav {
+  display: flex;
+  justify-content: center;
   padding: 0px;
   margin: 0px;
   background-color: #222;
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  height: 4rem;
+  height: 5rem;
 
   .nav-container {
-    width: 1366px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: stretch;
+    width: 1366px;
   }
 
-  h1.navTitle {
+  a.navTitle {
+    color: #86d869;
     display: flex;
     align-items: center;
-    text-transform: uppercase;
-    font-size: 20px;
-    padding: 0px 20px;
-    margin: 0;
 
-    a {
-      color: #00ac0e;
+    svg {
+      margin-right: 15px;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin: 0;
     }
   }
 
-  ul {
-    margin: 0;
+  ul.nav-menu {
     display: flex;
-    align-items: stretch;
+    height: 100%;
+    margin: 0;
 
-    li {
+    > li {
       display: flex;
-      align-items: stretch;
       position: relative;
-      transition: background-color 300ms;
+      align-items: center;
+      cursor: pointer;
 
-      &:hover {
-        background-color: #333;
-      }
-
-      a {
+      > a {
         display: flex;
-        flex: 1;
-        flex-direction: row;
-        align-items: center;
-        color: white;
-        font-weight: bold;
-        padding: 20px 15px;
+        color: #eee;
+        font-weight: 400;
+        font-size: 15px;
+        border-radius: 5px;
+        padding: 10px 15px;
+        transition: background-color 350ms;
 
-        &.router-link-exact-active {
-          color: #00ac0e;
+        &.router-link-active {
+          color: #86d869;
         }
       }
 
-      > ul.dropdown-menu {
-        margin: 0;
-        padding: 0.5rem 0;
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        overflow: hidden;
-        top: 4rem;
-        right: 0rem;
-        width: 12rem;
+      &:not(:first-child) {
+        margin-left: 10px;
+      }
 
-        a {
-          svg {
-            margin-right: 10px;
+      &:hover > a {
+        background-color: #303030;
+      }
+
+      &:hover ul.dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      ul.dropdown-menu {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        top: 100%;
+        right: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+
+        > li {
+          list-style: none;
+          background-color: #222;
+          transition: background-color 350ms;
+          border-bottom: 1px solid #303030;
+          border-top: 1px solid #1a1a1a;
+
+          a {
+            display: flex;
+            align-items: center;
+            color: #ccc;
+            font-size: 14px;
+            padding: 10px 12px;
+            white-space: nowrap;
+          }
+
+          span {
+            padding: 0px 5px;
+          }
+
+          &:first-child {
+            border-radius: 5px 5px 0px 0px;
+          }
+
+          &:last-child {
+            border-radius: 0px 0px 5px 5px;
+          }
+
+          &:hover {
+            background-color: #303030;
           }
         }
 
         &:before {
           content: "";
-          display: none;
           width: 0;
           height: 0;
-          margin-left: 10rem;
-          border-left: 0.5rem solid transparent;
-          border-right: 0.5rem solid transparent;
-          border-bottom: 0.5rem solid#222;
-          right: 20;
+          margin-right: 10px;
+          align-self: flex-end;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-bottom: 5px solid black;
         }
-
-        li {
-          background-color: #222;
-          border-top: 1px solid #111;
-          border-bottom: 1px solid #333;
-          transition: background-color 300ms;
-
-          &:last-child {
-            border-radius: 0rem 0rem 0.5rem 0.5rem;
-          }
-          &:first-child {
-            border-radius: 0.5rem 0.5rem 0rem 0rem;
-          }
-
-          &:hover {
-            background-color: #333;
-          }
-        }
-      }
-
-      &:hover ul.dropdown-menu,
-      &:hover ul.dropdown-menu:before {
-        display: flex;
-      }
-
-      svg {
-        margin-right: 10px;
       }
     }
   }

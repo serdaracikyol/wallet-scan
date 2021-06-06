@@ -15,7 +15,7 @@
           </td>
           <td>{{ item.name }}</td>
           <td>
-            {{ item.balance }} <b>{{ item.symbol }}</b>
+            {{ item.balance }} <span class="symbol">{{ item.symbol }}</span>
           </td>
         </tr>
         <tr v-if="loading" class="loading">
@@ -31,7 +31,7 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
-import ChainIcon from "./icons/ChainIcon";
+import { ChainIcon } from "./icons/LoadIcon";
 
 export default {
   computed: {
@@ -90,7 +90,11 @@ table.wallet-table {
 
       td {
         border: 1px solid #eaeaea;
-        padding: 20px 12px;
+        padding: 17px 12px;
+
+        span.symbol {
+          font-weight: bold;
+        }
       }
 
       &.loading {

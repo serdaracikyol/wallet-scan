@@ -82,10 +82,4 @@ export default {
 };
 </script>
 
-<style>
-svg {
-  position: relative;
-  bottom: -3px;
-  margin-right: 10px;
-}
-</style>
+<style lang="scss"></style>

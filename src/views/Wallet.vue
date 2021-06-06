@@ -14,3 +14,8 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.wallet {
+  flex-grow: 1;
+}
+</style>

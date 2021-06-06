@@ -21,48 +21,36 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 
-  ul,
-  li,
-  a {
-    list-style: none;
-    text-decoration: none;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+
   body {
-    margin: 0;
-    padding: 0;
     font-weight: normal;
-    font-family: "Lato", sans-serif;
-    width: 100%;
-    height: 100%;
+    font-family: "Roboto", sans-serif;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    a {
+      text-decoration: none;
+    }
 
     #app {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       color: #444;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
 
       .router-wrapper {
         width: 1366px;
+        height: calc(100vh - 5rem);
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        flex-wrap: nowrap;
-        flex-grow: 1;
-        justify-content: space-between;
-        align-items: stretch;
       }
     }
   }
