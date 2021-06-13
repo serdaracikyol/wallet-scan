@@ -1,14 +1,19 @@
-[
-  {
-    "symbol": "SPORE",
-    "contractAddress": "0x6e7f5C0b9f4432716bDd0a77a3601291b9D9e985"
-  },
-  {
-    "symbol": "SHIBX",
-    "contractAddress": "0x440aBbf18c54b2782A4917b80a1746d3A2c2Cce1"
-  },
-  {
-    "symbol": "CNR",
-    "contractAddress": "0x8D88e48465F30Acfb8daC0b3E35c9D6D7d36abaf"
-  }
-]
+{
+  "chainName": "Avalanche",
+  "coinName": "Avalanche",
+  "coinSymbol": "AVAX",
+  "tokenList": [
+    {
+      "symbol": "SPORE",
+      "contractAddress": "0x6e7f5C0b9f4432716bDd0a77a3601291b9D9e985"
+    },
+    {
+      "symbol": "SHIBX",
+      "contractAddress": "0x440aBbf18c54b2782A4917b80a1746d3A2c2Cce1"
+    },
+    {
+      "symbol": "CNR",
+      "contractAddress": "0x8D88e48465F30Acfb8daC0b3E35c9D6D7d36abaf"
+    }
+  ]
+}

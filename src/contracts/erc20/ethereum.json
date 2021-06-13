@@ -1,14 +1,19 @@
-[
-  {
-    "symbol": "BNB",
-    "contractAddress": "0xB8c77482e45F1F44dE1745F52C74426C631bDD52"
-  },
-  {
-    "symbol": "USDT",
-    "contractAddress": "0xdac17f958d2ee523a2206206994597c13d831ec7"
-  },
-  {
-    "symbol": "BUSD",
-    "contractAddress": "0x4fabb145d64652a948d72533023f6e7a623c7c53"
-  }
-]
+{
+  "chainName": "Ethereum",
+  "coinName": "Ethereum",
+  "coinSymbol": "ETH",
+  "tokenList": [
+    {
+      "symbol": "BNB",
+      "contractAddress": "0xB8c77482e45F1F44dE1745F52C74426C631bDD52"
+    },
+    {
+      "symbol": "USDT",
+      "contractAddress": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+    },
+    {
+      "symbol": "BUSD",
+      "contractAddress": "0x4fabb145d64652a948d72533023f6e7a623c7c53"
+    }
+  ]
+}
