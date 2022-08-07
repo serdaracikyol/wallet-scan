@@ -22,7 +22,7 @@
             "
           >
             {{
-              item.balance.toLocaleString("tr-TR", { maximumFractionDigits: 6 })
+              item.balance.toLocaleString("tr-TR", { maximumFractionDigits: 4 })
             }}
             <span class="symbol">{{ item.symbol }}</span>
           </td>

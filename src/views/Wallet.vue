@@ -1,7 +1,9 @@
 <template>
   <div class="wallet">
-    <h1>Your Wallet</h1>
-    <wallet-table :key="$route.query.q" />
+    <div class="wrapper">
+      <h1>Your Wallet</h1>
+      <wallet-table :key="$route.query.q" />
+    </div>
   </div>
 </template>
 <script>

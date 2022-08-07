@@ -1,10 +1,8 @@
 <template>
   <div id="app">
     <Navigation brand="WalletScan" />
-    <div class="router-wrapper">
-      <router-view />
-      <Footer />
-    </div>
+    <router-view />
+    <Footer />
   </div>
 </template>
 
@@ -45,12 +43,9 @@ html {
     #app {
       color: #444;
 
-      .router-wrapper {
+      .wrapper {
         width: 1366px;
-        height: calc(100vh - 5rem);
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
       }
     }
   }

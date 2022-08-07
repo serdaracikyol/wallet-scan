@@ -1,16 +1,16 @@
 <template>
-  <div class="home">
-    <h1>This page is home page.</h1>
-    <button @click="test">Test</button>
-  </div>
+  <WelcomeBanner />
 </template>
 
 <script>
 //import marketDataService from "../services/market/marketData.service";
+import WelcomeBanner from "../components/WelcomeBanner.vue";
 
 export default {
   name: "Home",
-  components: {},
+  components: {
+    WelcomeBanner,
+  },
   methods: {
     test() {
       //marketDataService.getCoinPrices(["avalanche-2"], ["TRY"]);

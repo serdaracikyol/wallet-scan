@@ -1,7 +1,9 @@
 <template>
-  <div class="footer">
-    <hr class="divider" />
-    0xeb6e107d6daFFb86178E9bA8Af4695b9B6f05506
+  <div class="wrapper">
+    <div class="footer">
+      <hr class="divider" />
+      0xeb6e107d6daFFb86178E9bA8Af4695b9B6f05506
+    </div>
   </div>
 </template>
 <script>
