@@ -14,8 +14,17 @@
             <chain-icon :chain-name="item.chain" width="40" height="40" />
           </td>
           <td>{{ item.name }}</td>
-          <td>
-            {{ item.balance }} <span class="symbol">{{ item.symbol }}</span>
+          <td
+            :title="
+              item.balance.toLocaleString('tr-TR', {
+                minimumFractionDigits: 20,
+              })
+            "
+          >
+            {{
+              item.balance.toLocaleString("tr-TR", { maximumFractionDigits: 6 })
+            }}
+            <span class="symbol">{{ item.symbol }}</span>
           </td>
         </tr>
         <tr v-if="loading" class="loading">
