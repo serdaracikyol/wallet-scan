@@ -8,30 +8,32 @@ Wallet Scan is multi network supported portfolio tracker application for EVM com
 npm install
 ```
 
-### Compiles and hot-reloads for development
+#### Compiles and hot-reloads for development
 
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+#### Compiles and minifies for production
 
 ```
-npm run build
+npm# run build
 ```
 
-### Run your unit tests
-
-```
-npm run test:unit
-```
-
-### Lints and fixes files
+#### Lints and fixes files
 
 ```
 npm run lint
 ```
 
-### Customize configuration
+#### Enviroments
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Copy the `.env.example` file and rename it `.env`
+2. Fill the chain addresses.
+
+Note: You can use the following for Avalanche C Chain and Binance Chain, but for ethereum you need to open an account on infura.io (Free up to 25000 requests/day) and get an api key.
+
+```
+VUE_APP_AVAX_NODE_ADDRESS=https://api.avax.network/ext/bc/C/rpc
+VUE_APP_BNB_NODE_ADDRESS=https://bsc-dataseed.binance.org/
+```
